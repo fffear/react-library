@@ -1,0 +1,11 @@
+.Library {
+  border: 5px solid salmon;
+}
+
+.Library thead td {
+  border: 1px solid black;
+}
+
+.Library tbody td {
+  border: 1px solid black;
+}

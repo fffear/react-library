@@ -1,8 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
+.Header {
   background-color: #282c34;
   min-height: 15vh;
   padding: 0 2rem;
@@ -13,4 +9,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
