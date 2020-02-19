@@ -2,42 +2,53 @@ import React, { Component } from "react";
 import classes from "./App.module.css";
 import Header from "./Header/Header";
 import Library from "./Library/Library";
+import LocalStorage from "./LocalStorage/LocalStorage";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      books: [
-        {
-          id: 0,
-          title: "The Hobbit",
-          author: "J.R.R. Tolkien",
-          pages: 295,
-          read: "Not Read Yet"
-        },
-        {
-          id: 1,
-          title: "The 48 Laws of Power",
-          author: "Robert Greene",
-          pages: 480,
-          read: "Not Read Yet"
-        },
-        {
-          id: 2,
-          title: "The Prince",
-          author: "Niccolo Machiavelli",
-          pages: 112,
-          read: "Not Read Yet"
-        },
-        {
-          id: 3,
-          title: "Tides of War",
-          author: "Steven Pressfield",
-          pages: 448,
-          read: "Not Read Yet"
-        }
-      ]
-    };
+
+    if (
+      LocalStorage.storageAvailable("localStorage") &&
+      localStorage.getItem("books")
+    ) {
+      this.state = {
+        books: JSON.parse(localStorage.getItem("books"))
+      };
+    } else {
+      this.state({
+        books: [
+          {
+            id: 0,
+            title: "The Hobbit",
+            author: "J.R.R. Tolkien",
+            pages: 295,
+            read: "Not Read Yet"
+          },
+          {
+            id: 1,
+            title: "The 48 Laws of Power",
+            author: "Robert Greene",
+            pages: 480,
+            read: "Not Read Yet"
+          },
+          {
+            id: 2,
+            title: "The Prince",
+            author: "Niccolo Machiavelli",
+            pages: 112,
+            read: "Not Read Yet"
+          },
+          {
+            id: 3,
+            title: "Tides of War",
+            author: "Steven Pressfield",
+            pages: 448,
+            read: "Not Read Yet"
+          }
+        ]
+      });
+    }
   }
 
   addNewBookHandler = event => {
@@ -54,6 +65,9 @@ class App extends Component {
     });
 
     this.setState({ books: books });
+    if (LocalStorage.storageAvailable("localStorage")) {
+      localStorage.setItem("books", JSON.stringify(books));
+    }
   };
 
   changeReadStatusHandler = booksId => {
@@ -70,12 +84,18 @@ class App extends Component {
     books[bookIndex] = book;
 
     this.setState({ books: books });
+    if (LocalStorage.storageAvailable("localStorage")) {
+      localStorage.setItem("books", JSON.stringify(books));
+    }
   };
 
   removeBookHandler = booksId => {
     const books = this.state.books.slice();
     books.splice(booksId, 1);
     this.setState({ books: books });
+    if (LocalStorage.storageAvailable("localStorage")) {
+      localStorage.setItem("books", JSON.stringify(books));
+    }
   };
 
   render() {

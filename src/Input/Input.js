@@ -11,6 +11,7 @@ const input = props => {
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}
+          min={props.min}
           required
         />
       );
