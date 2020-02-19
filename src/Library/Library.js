@@ -7,12 +7,12 @@ const Library = props => {
     <table className={classes.Library}>
       <thead>
         <tr>
-          <td>Title</td>
-          <td>Author</td>
-          <td>Pages</td>
-          <td>Read</td>
-          <td>Change Read Status</td>
-          <td>Remove Book</td>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th className={classes.read}>Read</th>
+          <th className={classes.ChangeReadStatus}>Change Read Status</th>
+          <th className={classes.Remove}>Remove Book</th>
         </tr>
       </thead>
 

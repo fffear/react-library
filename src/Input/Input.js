@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Input.module.css";
 
 const input = props => {
   let inputElement = null;
@@ -7,6 +8,7 @@ const input = props => {
     case "input":
       inputElement = (
         <input
+          className={classes.InputEle}
           id={props.id}
           type={props.type}
           name={props.name}
@@ -18,7 +20,13 @@ const input = props => {
       break;
     case "select":
       inputElement = (
-        <select id={props.id} type={props.type} name={props.name} required>
+        <select
+          className={classes.InputEle}
+          id={props.id}
+          type={props.type}
+          name={props.name}
+          required
+        >
           {props.options.map(option => {
             return (
               <option key={option} value={option}>
@@ -32,6 +40,7 @@ const input = props => {
     default:
       inputElement = (
         <input
+          className={classes.InputEle}
           id={props.id}
           type={props.type}
           name={props.name}
@@ -42,8 +51,10 @@ const input = props => {
   }
 
   return (
-    <div>
-      <label htmlFor={props.id}>{props.label}</label>
+    <div className={classes.Input}>
+      <label className={classes.Label} htmlFor={props.id}>
+        {props.label}
+      </label>
       {inputElement}
     </div>
   );

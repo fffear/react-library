@@ -1,0 +1,13 @@
+.Label {
+  display: block;
+  padding-bottom: 0.5rem;
+}
+
+.Input {
+  padding: 1rem 0 0;
+}
+
+.InputEle {
+  width: 100%;
+  box-sizing: border-box;
+}

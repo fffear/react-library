@@ -15,12 +15,13 @@ const ModalContent = props => {
       }}
     >
       <div className={classes.ModalArea}>
-        <button className={classes.ModalClose} onClick={props.closeModal}>
-          Close
-        </button>
+        <div className={classes.ModalClose} onClick={props.closeModal}>
+          X
+        </div>
 
         <div className={classes.ModalBody}>
           <form
+            className={classes.form}
             onSubmit={event => {
               props.addNewBook(event);
               props.closeModal();
@@ -71,7 +72,9 @@ const ModalContent = props => {
               <option value="Not Read Yet">Not Read Yet</option>
             </select> */}
 
-            <button type="submit">Add Book</button>
+            <button className={classes.SubmitBtn} type="submit">
+              Add Book
+            </button>
           </form>
         </div>
       </div>

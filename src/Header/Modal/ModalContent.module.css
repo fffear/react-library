@@ -12,14 +12,23 @@
 }
 
 .ModalArea {
+  position: relative;
+  padding: 1rem;
   border: 1px black solid;
   background-color: rgb(230, 230, 230);
 }
 
-.ModalClose {
-
+.SubmitBtn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  margin: 1rem auto auto 0;
 }
 
-.ModalBody {
-  
+.ModalClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }

@@ -1,11 +1,27 @@
 .Library {
+  width: 100%;
+  border-collapse: collapse;
   border: 5px solid salmon;
 }
 
-.Library thead td {
+.Library thead th {
+  padding: 1rem;
   border: 1px solid black;
 }
 
+.read {
+  width: 129px;
+}
+
+.ChangeReadStatus {
+  width: 181px;
+}
+
+.Remove {
+  width: 141px;
+}
+
 .Library tbody td {
+  padding: 1rem;
   border: 1px solid black;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Book.module.css";
 
 const Book = props => {
   return (
@@ -13,7 +14,9 @@ const Book = props => {
         </button>
       </td>
       <td>
-        <button onClick={props.removeBookHandler}>Remove</button>
+        <button className={classes.RemoveBtn} onClick={props.removeBookHandler}>
+          Remove
+        </button>
       </td>
     </tr>
   );
